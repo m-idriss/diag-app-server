@@ -11,6 +11,7 @@ configured to run in a Docker network.
 
 - **Image**: `bitnami/kafka:latest`
 - **Ports**: `9092:9092`
+- **Internal access**: `kafka:29092`
 
 ### Kafka UI
 
@@ -30,3 +31,9 @@ configured to run in a Docker network.
    ```sh
    git clone https://github.com/m-idriss/diag-app-server.git
    cd diag-app-server
+
+2. Start the services:
+   ```sh
+   docker-compose up -d
+   ```
+3. Access the Kafka UI at `http://localhost:8090`.
