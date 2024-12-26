@@ -35,21 +35,26 @@ services:
     image: provectuslabs/kafka-ui:latest
     restart: unless-stopped
     environment:
-      DYNAMIC_CONFIG_ENABLED: 'true'
+      KAFKA_CLUSTERS_0_NAME: local
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:29092
+      AUTH_TYPE: "LOGIN_FORM"
+      SPRING_SECURITY_USER_NAME: Kafka!User
+      SPRING_SECURITY_USER_PASSWORD: Kafka!Pass
+
     networks:
       - proxinet
     ports:
       - "8090:8080"
     healthcheck:
-      test: wget --no-verbose --tries=1 --spider localhost:8080 || exit 1
-      interval: 5s
+      test: wget --no-verbose --tries=1 --spider  http://localhost:8080/actuator/health
+      interval: 30s
       timeout: 10s
-      retries: 3
-      start_period: 30s
+      retries: 10
+      start_period: 10s
 
 networks:
   proxinet:
-    name: diag-network
+    name: kafka-network
 
 volumes:
   kafka-data:
