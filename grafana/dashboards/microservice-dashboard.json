@@ -315,7 +315,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "rate(log_total{level=~\"INFO|WARN|ERROR\"}[$__rate_interval]) * 100",
+          "expr": "rate(log_total{level=~\"INFO|WARN|ERROR\", instance=\"$instance\", application=\"$application\"}[$__rate_interval]) * 100",
           "format": "time_series",
           "instant": false,
           "intervalFactor": 1,
@@ -691,11 +691,13 @@
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
+          "editorMode": "code",
           "expr": "http_server_requests_seconds_sum{instance=\"$instance\", application=\"$application\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
           "legendFormat": "{{method}} [{{status}}] - {{uri}}",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -1311,8 +1313,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -1408,8 +1409,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -1505,8 +1505,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -1613,8 +1612,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -1721,8 +1719,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -1840,8 +1837,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -1962,8 +1958,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -2059,8 +2054,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -2226,6 +2220,6 @@
   "timezone": "",
   "title": "Spring Boot Statistics & Endpoint Metrics",
   "uid": "OS7-NUiGz",
-  "version": 3,
+  "version": 4,
   "weekStart": ""
 }
