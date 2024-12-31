@@ -56,7 +56,7 @@ services:
     image: prom/prometheus:latest
     restart: unless-stopped
     volumes:
-      - prometheus_data:/prometheus
+      - prometheus-data:/prometheus
       - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
@@ -97,5 +97,5 @@ networks:
 
 volumes:
   kafka-data:
-  prometheus_data:
+  prometheus-data:
     driver: local
